@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { API_BASE } from './config.js';
 
 const FadeIn = ({ children, delay = 0, className = "" }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -153,7 +154,7 @@ const Creator = () => {
       setIsLoading(true);
       setErrorMessage('');
       try {
-        const response = await fetch('http://127.0.0.1:5000/stp/v1/creator_entry', {
+        const response = await fetch(`${API_BASE}/v1/creator_entry`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -169,11 +170,17 @@ const Creator = () => {
 
         const data = await response.json();
 
-        if (response.ok) {
+        if (response.ok && data.success) {
           setIsSubmitted(true);
         } else {
-          const errorMsg = data.error || (data.errors ? JSON.stringify(data.errors) : 'Something went wrong.');
-          setErrorMessage(errorMsg);
+          const errorsRaw = data.errors ?? data.error ?? data.message;
+          const errMsg =
+            typeof errorsRaw === 'string'
+              ? errorsRaw
+              : typeof errorsRaw === 'object' && errorsRaw !== null
+              ? Object.values(errorsRaw).join(' | ')
+              : 'Something went wrong. Please try again.';
+          setErrorMessage(errMsg);
         }
       } catch (error) {
         setErrorMessage('Failed to connect to the server.');
@@ -396,7 +403,7 @@ const Creator = () => {
                   </select>
 
                   <p className="text-xs text-neutral-500 mt-2 px-1">
-                    By clicking "Join Waitlist", you accept our <Link to="/privacy" className="text-indigo-400 hover:text-indigo-300 transition-colors underline decoration-indigo-400/30 underline-offset-2">Privacy Policy</Link>.
+                    By clicking "Join Waitlist", you acknowledge that you have read our <Link to="/privacy" className="text-indigo-400 hover:text-indigo-300 transition-colors underline decoration-indigo-400/30 underline-offset-2">Privacy Policy</Link>.
                   </p>
 
                   {errorMessage && (

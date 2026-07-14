@@ -41,6 +41,15 @@ const PrivacyPolicy = () => {
             <li><strong>Professional Data:</strong> Your primary social media profile link (e.g., Instagram, YouTube) and your chosen content niche.</li>
           </ul>
 
+          <p>If you register as a <strong>Business / Brand Partner</strong>, we additionally collect:</p>
+          <ul className="list-disc pl-6 mb-6 space-y-2 text-neutral-300">
+            <li><strong>Business Identity Data:</strong> Your business or brand name and your business social media or website link.</li>
+            <li><strong>Business Profile Data:</strong> Your industry or sector, and your type of business operation (e.g., online, offline, or hybrid).</li>
+            <li><strong>Location Data:</strong> Your business or brand location (city, state, and pincode), which may be captured via your device's GPS with your explicit permission.</li>
+            <li><strong>Campaign Preference Data:</strong> Your marketing goals (e.g., drive walk-ins, app downloads, sell event tickets, or build brand awareness).</li>
+            <li><strong>Financial Data:</strong> An estimated range of your monthly business revenue, used solely to match you with appropriate creator tiers.</li>
+          </ul>
+
           <h2 className="text-2xl mt-12 mb-4">2. How We Use Your Data</h2>
           <p>We use the information we collect strictly for the following purposes:</p>
           <ul className="list-disc pl-6 mb-6 space-y-2 text-neutral-300">
