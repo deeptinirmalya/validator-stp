@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-[#050505] text-white font-sans overflow-x-hidden;
+  }
+  ::selection {
+    @apply bg-indigo-500/30;
+  }
+}
+
+@keyframes float-message-brand {
+  0% { left: 15%; opacity: 0; transform: translateY(10px) scale(0.9); }
+  15% { opacity: 1; transform: translateY(-15px) scale(1); }
+  45% { left: 85%; opacity: 1; transform: translateY(-15px) scale(1); }
+  50% { left: 85%; opacity: 0; transform: translateY(10px) scale(0.9); }
+  100% { left: 85%; opacity: 0; }
+}
+
+@keyframes float-message-creator {
+  0% { right: 15%; opacity: 0; transform: translateY(10px) scale(0.9); }
+  50% { right: 15%; opacity: 0; transform: translateY(10px) scale(0.9); }
+  65% { opacity: 1; transform: translateY(15px) scale(1); }
+  95% { right: 85%; opacity: 1; transform: translateY(15px) scale(1); }
+  100% { right: 85%; opacity: 0; transform: translateY(10px) scale(0.9); }
+}
+
+@keyframes dash-flow {
+  from { stroke-dashoffset: 24; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes fadeScale {
+  from { opacity: 0; transform: scale(0.92) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
