@@ -16,7 +16,6 @@ const PrivacyPolicy = () => {
           <div className="flex items-center gap-6">
             <Link to="/" className="text-sm font-medium text-neutral-400 hover:text-white transition-colors">Home</Link>
             <Link to="/about" className="text-sm font-medium text-neutral-400 hover:text-white transition-colors">About Us</Link>
-            <Link to="/partners" className="text-sm font-medium text-neutral-400 hover:text-white transition-colors">Ad Partners</Link>
             <Link to="/contact" className="text-sm font-medium text-neutral-400 hover:text-white transition-colors">Contact Us</Link>
           </div>
         </div>

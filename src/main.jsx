@@ -7,12 +7,14 @@ import AboutUs from './AboutUs.jsx'
 import PrivacyPolicy from './PrivacyPolicy.jsx'
 import ContactUs from './ContactUs.jsx'
 import Partners from './Partners.jsx'
+import Creator from './Creator.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
+        <Route path="/creator" element={<Creator />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/partners" element={<Partners />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
