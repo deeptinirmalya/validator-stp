@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { API_BASE } from './config.js';
 
 const FadeIn = ({ children, delay = 0, className = "" }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -130,7 +129,7 @@ const Partners = () => {
     setIsLoading(true);
     setErrorMessage('');
     try {
-      const res = await fetch(`${API_BASE}/stp/v1/partners_entry`, {
+      const res = await fetch('https://filestoresystem-deepti.onrender.com/stp/v1/partners_entry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

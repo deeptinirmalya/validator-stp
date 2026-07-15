@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { API_BASE } from './config.js';
 
 const FadeIn = ({ children, delay = 0, className = "" }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -154,7 +153,7 @@ const Creator = () => {
       setIsLoading(true);
       setErrorMessage('');
       try {
-        const response = await fetch(`${API_BASE}/v1/creator_entry`, {
+        const response = await fetch('https://filestoresystem-deepti.onrender.com/stp/v1/creator_entry', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
