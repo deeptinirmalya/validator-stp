@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import FadeIn from './components/FadeIn';
+import { TestimonialCard, TestimonialModal } from './components/TestimonialCard';
+
+const testimonials = [
+  {
+    quote: "Vibelist helped me earn more from local creator work than any other platform. The onboarding was seamless, and the support from local businesses made it easy to keep creating.",
+    name: "Riya Sharma",
+    role: "Creator",
+    location: "Mumbai",
+  },
+  {
+    quote: "The platform makes it easy to discover high-quality local creators. We've seen a measurable increase in walk-in traffic and positive engagement after every campaign.",
+    name: "Amit Verma",
+    role: "Business Owner",
+    location: "Delhi",
+  },
+  {
+    quote: "I loved how simple it was to start. Vibelist connects me to real people who care about my content, not just vanity metrics.",
+    name: "Neha Patel",
+    role: "Creator",
+    location: "Bangalore",
+  },
+];
 
 const PersonIcon = ({ className }) => (
   <svg viewBox="0 0 100 200" className={className} fill="none" stroke="currentColor" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round">
@@ -74,6 +96,8 @@ const ProcessAnimation = () => (
 );
 
 const App = () => {
+  const [selectedTestimonial, setSelectedTestimonial] = useState(null);
+
   return (
     <div className="min-h-screen bg-[#050505] text-neutral-200 font-sans selection:bg-white/30 relative flex flex-col overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)] pointer-events-none"></div>
@@ -148,27 +172,11 @@ const App = () => {
           <p className="text-sm uppercase tracking-[0.35em] text-neutral-500 mb-6">Testimonials</p>
           <h2 className="text-4xl md:text-5xl font-semibold text-white mb-12">What creators and partners say</h2>
           <div className="grid gap-6 md:grid-cols-3">
-            <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-8 text-left shadow-[0_20px_40px_rgba(255,255,255,0.05)]">
-              <p className="text-lg text-neutral-100 leading-relaxed mb-6">
-                “Vibelist helped me earn more from local creator work than any other platform. The onboarding was seamless, and the support from local businesses made it easy to keep creating.”
-              </p>
-              <div className="text-white font-semibold text-base">Riya Sharma</div>
-              <div className="text-neutral-500 text-sm">Creator, Mumbai</div>
-            </div>
-            <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-8 text-left shadow-[0_20px_40px_rgba(255,255,255,0.05)]">
-              <p className="text-lg text-neutral-100 leading-relaxed mb-6">
-                “The platform makes it easy to discover high-quality local creators. We’ve seen a measurable increase in walk-in traffic and positive engagement after every campaign.”
-              </p>
-              <div className="text-white font-semibold text-base">Amit Verma</div>
-              <div className="text-neutral-500 text-sm">Business Owner, Delhi</div>
-            </div>
-            <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-8 text-left shadow-[0_20px_40px_rgba(255,255,255,0.05)]">
-              <p className="text-lg text-neutral-100 leading-relaxed mb-6">
-                “I loved how simple it was to start. Vibelist connects me to real people who care about my content, not just vanity metrics.”
-              </p>
-              <div className="text-white font-semibold text-base">Neha Patel</div>
-              <div className="text-neutral-500 text-sm">Creator, Bangalore</div>
-            </div>
+            {testimonials.map((t, i) => (
+              <FadeIn key={i} delay={i * 150}>
+                <TestimonialCard {...t} onClick={() => setSelectedTestimonial(t)} />
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>
@@ -176,6 +184,12 @@ const App = () => {
       <ProcessAnimation />
 
       <Footer />
+
+      <TestimonialModal
+        isOpen={!!selectedTestimonial}
+        onClose={() => setSelectedTestimonial(null)}
+        {...selectedTestimonial}
+      />
     </div>
   );
 };
