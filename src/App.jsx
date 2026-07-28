@@ -80,33 +80,26 @@ const App = () => {
 
       <Navbar />
 
-      <main className="flex-1 relative z-10 flex flex-col items-center justify-center px-6 py-32 max-w-6xl mx-auto w-full overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute left-1/2 top-0 w-[34rem] h-[34rem] -translate-x-1/2 rounded-full bg-white/10 blur-3xl animate-float" />
-          <div className="absolute -right-16 top-24 w-72 h-72 rounded-full bg-white/8 blur-3xl animate-float" />
-          <div className="absolute left-10 bottom-0 w-64 h-64 rounded-full bg-white/8 blur-3xl animate-float" />
-        </div>
-        <FadeIn delay={0} className="text-center mb-16 relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-neutral-300 backdrop-blur-md mb-8">
-            <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span> Choose Your Path
-          </div>
-          <h1 className="text-5xl sm:text-6xl md:text-[5.5rem] font-semibold tracking-tighter text-white mb-6 leading-[0.95]">
-            Welcome to <span className="text-white">Vibelist.in</span>
+      <main className="flex-1 relative z-10 flex flex-col items-center justify-center px-6 py-28 max-w-6xl mx-auto w-full">
+        <FadeIn delay={0} className="text-center mb-20 relative z-10">
+          <h1 className="text-6xl sm:text-7xl md:text-[6rem] font-semibold tracking-tight text-white mb-6 leading-[0.92]">
+            Vibelist
           </h1>
-          <p className="text-neutral-300 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
-            The hyper-local economy connecting creators and businesses.
-            Join thousands of others making a real impact in their community.
+          <p className="text-neutral-300 text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed mb-10">
+            Your AI creative studio built with local creators and businesses in mind.
           </p>
+          <Link to="/creator" className="inline-flex items-center justify-center rounded-full bg-white px-10 py-4 text-base font-semibold text-black shadow-[0_20px_60px_rgba(255,255,255,0.08)] transition hover:shadow-[0_24px_80px_rgba(255,255,255,0.12)]">
+            Create with Vibelist
+          </Link>
         </FadeIn>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
 
           <FadeIn delay={200}>
-            <div className="group relative p-1 rounded-[2.5rem] overflow-hidden transition-transform duration-500 hover:-translate-y-4 h-full animate-float">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
-              <div className="relative h-full flex flex-col items-center text-center p-10 md:p-14 rounded-[2.4rem] glass-card z-10 shadow-[0_0_70px_rgba(59,130,246,0.18)]">
-                <div className="w-20 h-20 mb-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
-                  <svg className="w-10 h-10 text-neutral-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="group relative p-1 rounded-[2.5rem] overflow-hidden transition-transform duration-300 hover:-translate-y-2 h-full">
+              <div className="relative h-full flex flex-col items-center text-center p-10 md:p-14 rounded-[2.4rem] bg-black border border-white/10 shadow-[0_0_30px_rgba(255,255,255,0.08)]">
+                <div className="w-20 h-20 mb-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                  <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -115,7 +108,7 @@ const App = () => {
                 <p className="text-neutral-400 leading-relaxed mb-10 flex-1">
                   Turn your local visits into cash. Get paid for making videos and promoting venues, no matter your follower count or reach.
                 </p>
-                <Link to="/creator" className="w-full py-4 rounded-xl bg-white text-black font-bold hover:bg-neutral-200 transition-all duration-300 group-hover:scale-[1.02]">
+                <Link to="/creator" className="w-full py-4 rounded-xl bg-white text-black font-bold hover:bg-neutral-200 transition-all duration-300">
                   Enter as Creator
                 </Link>
               </div>
@@ -123,11 +116,10 @@ const App = () => {
           </FadeIn>
 
           <FadeIn delay={400}>
-            <div className="group relative p-1 rounded-[2.5rem] overflow-hidden transition-transform duration-500 hover:-translate-y-4 h-full animate-float">
-              <div className="absolute inset-0 bg-gradient-to-bl from-white/10 via-white/5 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
-              <div className="relative h-full flex flex-col items-center text-center p-10 md:p-14 rounded-[2.4rem] glass-card z-10 shadow-[0_0_70px_rgba(59,130,246,0.18)]">
-                <div className="w-20 h-20 mb-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:-rotate-12 transition-all duration-500">
-                  <svg className="w-10 h-10 text-neutral-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="group relative p-1 rounded-[2.5rem] overflow-hidden transition-transform duration-300 hover:-translate-y-2 h-full">
+              <div className="relative h-full flex flex-col items-center text-center p-10 md:p-14 rounded-[2.4rem] bg-black border border-white/10 shadow-[0_0_30px_rgba(255,255,255,0.08)]">
+                <div className="w-20 h-20 mb-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                  <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                   </svg>
                 </div>
@@ -135,7 +127,7 @@ const App = () => {
                 <p className="text-neutral-400 leading-relaxed mb-10 flex-1">
                   Stop chasing vanity metrics. Bring real people and guaranteed foot traffic straight to your door with trusted local micro-creators.
                 </p>
-                <Link to="/partners" className="w-full py-4 rounded-xl bg-white text-black font-bold hover:bg-neutral-200 transition-all duration-300 group-hover:scale-[1.02]">
+                <Link to="/partners" className="w-full py-4 rounded-xl bg-white text-black font-bold hover:bg-neutral-200 transition-all duration-300">
                   Enter as Partner
                 </Link>
               </div>
@@ -144,6 +136,36 @@ const App = () => {
 
         </div>
       </main>
+
+      <section className="w-full py-24 px-6 bg-[#050505]">
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="text-sm uppercase tracking-[0.35em] text-neutral-500 mb-6">Testimonials</p>
+          <h2 className="text-4xl md:text-5xl font-semibold text-white mb-12">What creators and partners say</h2>
+          <div className="grid gap-6 md:grid-cols-3">
+            <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-8 text-left shadow-[0_20px_40px_rgba(255,255,255,0.05)]">
+              <p className="text-lg text-neutral-100 leading-relaxed mb-6">
+                “Vibelist helped me earn more from local creator work than any other platform. The onboarding was seamless, and the support from local businesses made it easy to keep creating.”
+              </p>
+              <div className="text-white font-semibold text-base">Riya Sharma</div>
+              <div className="text-neutral-500 text-sm">Creator, Mumbai</div>
+            </div>
+            <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-8 text-left shadow-[0_20px_40px_rgba(255,255,255,0.05)]">
+              <p className="text-lg text-neutral-100 leading-relaxed mb-6">
+                “The platform makes it easy to discover high-quality local creators. We’ve seen a measurable increase in walk-in traffic and positive engagement after every campaign.”
+              </p>
+              <div className="text-white font-semibold text-base">Amit Verma</div>
+              <div className="text-neutral-500 text-sm">Business Owner, Delhi</div>
+            </div>
+            <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-8 text-left shadow-[0_20px_40px_rgba(255,255,255,0.05)]">
+              <p className="text-lg text-neutral-100 leading-relaxed mb-6">
+                “I loved how simple it was to start. Vibelist connects me to real people who care about my content, not just vanity metrics.”
+              </p>
+              <div className="text-white font-semibold text-base">Neha Patel</div>
+              <div className="text-neutral-500 text-sm">Creator, Bangalore</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <ProcessAnimation />
 

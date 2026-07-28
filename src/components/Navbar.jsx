@@ -10,10 +10,10 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="absolute top-0 left-0 w-full z-50 px-6 py-6 border-b border-white/5 bg-[#050505]/50 backdrop-blur-md">
+    <nav className="absolute top-0 left-0 w-full z-50 px-6 py-6 bg-transparent">
       <div className="max-w-6xl mx-auto flex items-center justify-between">
-        <Link to="/" className="text-white font-bold text-xl tracking-tighter hover:opacity-80 transition-opacity">
-          Vibelist<span className="text-neutral-400">.in</span>
+        <Link to="/" className="text-white font-semibold text-xl tracking-tight hover:opacity-80 transition-opacity">
+          Vibelist
         </Link>
         <div className="flex items-center gap-6">
           <Link to="/" className="hidden sm:inline-block text-sm font-medium text-neutral-400 hover:text-white transition-colors">Home</Link>
