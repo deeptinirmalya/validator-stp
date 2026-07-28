@@ -5,32 +5,51 @@
     @apply bg-[#050505] text-white font-sans overflow-x-hidden;
   }
   ::selection {
-    @apply bg-indigo-500/30;
+    @apply bg-white/30;
   }
-}
-
-@keyframes float-message-brand {
-  0% { left: 15%; opacity: 0; transform: translateY(10px) scale(0.9); }
-  15% { opacity: 1; transform: translateY(-15px) scale(1); }
-  45% { left: 85%; opacity: 1; transform: translateY(-15px) scale(1); }
-  50% { left: 85%; opacity: 0; transform: translateY(10px) scale(0.9); }
-  100% { left: 85%; opacity: 0; }
-}
-
-@keyframes float-message-creator {
-  0% { right: 15%; opacity: 0; transform: translateY(10px) scale(0.9); }
-  50% { right: 15%; opacity: 0; transform: translateY(10px) scale(0.9); }
-  65% { opacity: 1; transform: translateY(15px) scale(1); }
-  95% { right: 85%; opacity: 1; transform: translateY(15px) scale(1); }
-  100% { right: 85%; opacity: 0; transform: translateY(10px) scale(0.9); }
-}
-
-@keyframes dash-flow {
-  from { stroke-dashoffset: 24; }
-  to { stroke-dashoffset: 0; }
 }
 
 @keyframes fadeScale {
   from { opacity: 0; transform: scale(0.92) translateY(20px); }
   to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  .animate-flow-text {
+    color: white;
+    background: none;
+    animation: none;
+  }
+  .hero-glow-overlay {
+    background: none;
+  }
+  .glass-card {
+    background: rgba(15, 23, 42, 0.92);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(18px);
+  }
+  .flow-line {
+    animation: dash 35s linear infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes flowText {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
 }

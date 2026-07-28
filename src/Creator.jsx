@@ -1,58 +1,23 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
-const FadeIn = ({ children, delay = 0, className = "" }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const domRef = useRef();
-
-  useEffect(() => {
-    if (typeof window === 'undefined' || !window.IntersectionObserver) {
-      setIsVisible(true);
-      return;
-    }
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    const currentRef = domRef.current;
-    if (currentRef) observer.observe(currentRef);
-    return () => {
-      if (currentRef) observer.unobserve(currentRef);
-    };
-  }, []);
-
-  return (
-    <div
-      ref={domRef}
-      className={`transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-        } ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
-    </div>
-  );
-};
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import FadeIn from './components/FadeIn';
 
 const BackgroundAnimation = () => {
   return (
     <div className="relative w-full h-[200px] md:h-[250px] overflow-hidden pointer-events-none opacity-80 -my-10 md:-my-24">
       <div className="relative max-w-5xl mx-auto h-full w-full flex items-center justify-between px-4 md:px-10">
 
-        {/* Brand Side (Left) */}
         <div className="flex flex-col items-center gap-3 z-10">
-          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center backdrop-blur-md shadow-[0_0_30px_rgba(99,102,241,0.15)]">
-            <svg className="w-8 h-8 md:w-10 md:h-10 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-md">
+            <svg className="w-8 h-8 md:w-10 md:h-10 text-neutral-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
             </svg>
           </div>
-          <span className="text-[10px] font-mono text-indigo-400 tracking-[0.2em] uppercase">Brand</span>
+          <span className="text-[10px] font-mono text-neutral-400 tracking-[0.2em] uppercase">Brand</span>
         </div>
 
-        {/* Dotted Line Connection */}
         <div className="absolute left-24 right-24 md:left-32 md:right-32 top-1/2 -translate-y-1/2 flex items-center z-0">
           <svg className="w-full h-4" preserveAspectRatio="none">
             <line
@@ -65,31 +30,28 @@ const BackgroundAnimation = () => {
           </svg>
         </div>
 
-        {/* Creator Side (Right) */}
         <div className="flex flex-col items-center gap-3 z-10">
-          <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-purple-500/10 border border-purple-500/30 flex items-center justify-center backdrop-blur-md shadow-[0_0_30px_rgba(168,85,247,0.15)]">
-            <svg className="w-8 h-8 md:w-10 md:h-10 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-md">
+            <svg className="w-8 h-8 md:w-10 md:h-10 text-neutral-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <span className="text-[10px] font-mono text-purple-400 tracking-[0.2em] uppercase">Creator</span>
+          <span className="text-[10px] font-mono text-neutral-400 tracking-[0.2em] uppercase">Creator</span>
         </div>
 
-        {/* Animated Message: Brand to Creator */}
         <div
-          className="absolute top-1/2 -translate-y-1/2 flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-indigo-950/80 border border-indigo-500/30 text-indigo-200 text-sm backdrop-blur-xl shadow-xl w-max"
+          className="absolute top-1/2 -translate-y-1/2 flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-neutral-900/80 border border-white/10 text-neutral-200 text-sm backdrop-blur-xl shadow-xl w-max"
           style={{ animation: 'float-message-brand 8s cubic-bezier(0.4, 0, 0.2, 1) infinite' }}
         >
-          <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
-          1 Reel + 2 Stories â€¢ 1500
+          <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+          1 Reel + 2 Stories • 1500
         </div>
 
-        {/* Animated Message: Creator to Brand */}
         <div
-          className="absolute top-1/2 -translate-y-1/2 flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-purple-950/80 border border-purple-500/30 text-purple-200 text-sm backdrop-blur-xl shadow-xl w-max"
+          className="absolute top-1/2 -translate-y-1/2 flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-neutral-800/80 border border-white/10 text-neutral-200 text-sm backdrop-blur-xl shadow-xl w-max"
           style={{ animation: 'float-message-creator 8s cubic-bezier(0.4, 0, 0.2, 1) infinite' }}
         >
-          <svg className="w-4 h-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
           Done
@@ -99,33 +61,6 @@ const BackgroundAnimation = () => {
     </div>
   );
 };
-
-const Navbar = () => (
-  <nav className="absolute top-0 left-0 w-full z-50 px-6 py-6 border-b border-white/5 bg-[#050505]/50 backdrop-blur-md">
-    <div className="max-w-6xl mx-auto flex items-center justify-between">
-      <Link to="/" className="text-white font-bold text-xl tracking-tighter hover:opacity-80 transition-opacity">
-        Vibelist<span className="text-indigo-500">.in</span>
-      </Link>
-      <div className="flex items-center gap-6">
-        <Link to="/about" className="text-sm font-medium text-neutral-400 hover:text-white transition-colors">About Us</Link>
-        <Link to="/contact" className="text-sm font-medium text-neutral-400 hover:text-white transition-colors">Contact Us</Link>
-      </div>
-    </div>
-  </nav>
-);
-
-const Footer = () => (
-  <footer className="w-full border-t border-white/5 py-10 px-6 mt-10 z-20 relative bg-[#050505]">
-    <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-      <div className="text-neutral-500 text-sm">
-        &copy; {new Date().getFullYear()} Vibelist.in. All rights reserved.
-      </div>
-      <div className="flex gap-6">
-        <Link to="/privacy" className="text-sm text-neutral-500 hover:text-white transition-colors cursor-pointer">Privacy Policy</Link>
-      </div>
-    </div>
-  </footer>
-);
 
 const Creator = () => {
   const [formData, setFormData] = useState({
@@ -181,7 +116,7 @@ const Creator = () => {
               : 'Something went wrong. Please try again.';
           setErrorMessage(errMsg);
         }
-      } catch (error) {
+      } catch {
         setErrorMessage('Failed to connect to the server.');
       } finally {
         setIsLoading(false);
@@ -197,27 +132,25 @@ const Creator = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#050505] text-neutral-200 font-sans selection:bg-indigo-500/30 relative">
-      {/* Subtle grid background */}
+    <div className="min-h-screen bg-[#050505] text-neutral-200 font-sans selection:bg-white/30 relative">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)] pointer-events-none"></div>
 
       <Navbar />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 flex flex-col gap-40 pt-32">
 
-        {/* HERO */}
         <section className="flex flex-col items-center text-center gap-10 mt-12 md:mt-20">
           <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-neutral-400 backdrop-blur-md">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
             </span>
             Private Beta v1.0
           </div>
 
           <h1 className="text-5xl md:text-8xl font-medium tracking-tighter text-white max-w-5xl leading-[1.1]">
             Stop bartering.<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-neutral-400">
+            <span className="text-white">
               Start earning.
             </span>
           </h1>
@@ -227,10 +160,10 @@ const Creator = () => {
           </p>
 
           <div className="relative group inline-block mt-6">
-            <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500/50 to-purple-500/50 rounded-full blur-md opacity-40 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-white/20 to-white/20 rounded-full blur-md opacity-40 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
             <button
               onClick={scrollToForm}
-              className="relative inline-flex h-14 items-center justify-center overflow-hidden rounded-full bg-neutral-950 px-10 font-medium text-neutral-200 border border-white/10 hover:border-indigo-500/50 transition-colors duration-300 cursor-pointer"
+              className="relative inline-flex h-14 items-center justify-center overflow-hidden rounded-full bg-neutral-950 px-10 font-medium text-neutral-200 border border-white/10 hover:border-white/30 transition-colors duration-300 cursor-pointer"
             >
               <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(100%)]">
                 <div className="relative h-full w-8 bg-white/5"></div>
@@ -242,7 +175,6 @@ const Creator = () => {
 
         <BackgroundAnimation />
 
-        {/* MECHANICS - Asymmetric Grid */}
         <section className="flex flex-col gap-16">
           <div className="flex flex-col md:flex-row justify-between items-end gap-6">
             <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-white max-w-xl">
@@ -254,10 +186,9 @@ const Creator = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-            {/* Large Card */}
             <FadeIn className="md:col-span-8 flex">
               <div className="w-full p-10 rounded-[2rem] bg-gradient-to-br from-white/[0.03] to-transparent border border-white/5 hover:bg-white/[0.04] transition-all duration-500 flex flex-col justify-between min-h-[320px]">
-                <div className="w-12 h-12 rounded-full border border-indigo-500/30 bg-indigo-500/10 flex items-center justify-center text-indigo-400 mb-8 font-mono text-sm">
+                <div className="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-neutral-300 mb-8 font-mono text-sm">
                   01
                 </div>
                 <div>
@@ -269,7 +200,6 @@ const Creator = () => {
               </div>
             </FadeIn>
 
-            {/* Stacked Small Cards */}
             <div className="md:col-span-4 flex flex-col gap-6">
               <FadeIn delay={200} className="flex-1 flex">
                 <div className="w-full p-8 rounded-[2rem] bg-gradient-to-br from-white/[0.03] to-transparent border border-white/5 hover:bg-white/[0.04] transition-all duration-500">
@@ -293,7 +223,6 @@ const Creator = () => {
           </div>
         </section>
 
-        {/* COMPARISON / BENEFITS */}
         <section className="py-20 border-y border-white/5">
           <FadeIn>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8">
@@ -301,13 +230,13 @@ const Creator = () => {
                 <h3 className="text-xl font-medium text-neutral-500">The Old Way</h3>
                 <ul className="flex flex-col gap-6">
                   <li className="text-neutral-400 font-light flex gap-4">
-                    <span className="text-neutral-600">â€”</span> Pitching brands via DMs and getting ignored.
+                    <span className="text-neutral-600">—</span> Pitching brands via DMs and getting ignored.
                   </li>
                   <li className="text-neutral-400 font-light flex gap-4">
-                    <span className="text-neutral-600">â€”</span> Accepting free meals instead of actual money.
+                    <span className="text-neutral-600">—</span> Accepting free meals instead of actual money.
                   </li>
                   <li className="text-neutral-400 font-light flex gap-4">
-                    <span className="text-neutral-600">â€”</span> Struggling and chasing brands just to get paid.
+                    <span className="text-neutral-600">—</span> Struggling and chasing brands just to get paid.
                   </li>
                 </ul>
               </div>
@@ -315,13 +244,13 @@ const Creator = () => {
                 <h3 className="text-xl font-medium text-white">The Vibelist Way</h3>
                 <ul className="flex flex-col gap-6">
                   <li className="text-neutral-200 font-light flex gap-4">
-                    <span className="text-indigo-400">+</span> Automated matching with brands who want your audience.
+                    <span className="text-white">+</span> Automated matching with brands who want your audience.
                   </li>
                   <li className="text-neutral-200 font-light flex gap-4">
-                    <span className="text-indigo-400">+</span> Transparent pricingâ€”you know exactly what you'll earn.
+                    <span className="text-white">+</span> Transparent pricing—you know exactly what you'll earn.
                   </li>
                   <li className="text-neutral-200 font-light flex gap-4">
-                    <span className="text-indigo-400">+</span> Guaranteed, automated payouts the moment the job is done.
+                    <span className="text-white">+</span> Guaranteed, automated payouts the moment the job is done.
                   </li>
                 </ul>
               </div>
@@ -329,7 +258,6 @@ const Creator = () => {
           </FadeIn>
         </section>
 
-        {/* FORM SECTION */}
         <section id="claim-form" className="flex flex-col items-center justify-center pb-32">
           <div className="w-full max-w-lg">
             {!isSubmitted ? (
@@ -350,7 +278,7 @@ const Creator = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       placeholder="Name"
-                      className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-neutral-600 focus:outline-none focus:border-indigo-500/50 focus:bg-white/[0.04] transition-all"
+                      className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-neutral-600 focus:outline-none focus:border-white/50 focus:bg-white/[0.04] transition-all"
                     />
                     <input
                       type="tel"
@@ -358,7 +286,7 @@ const Creator = () => {
                       value={formData.whatsapp}
                       onChange={handleInputChange}
                       placeholder="WhatsApp"
-                      className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-neutral-600 focus:outline-none focus:border-indigo-500/50 focus:bg-white/[0.04] transition-all"
+                      className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-neutral-600 focus:outline-none focus:border-white/50 focus:bg-white/[0.04] transition-all"
                     />
                   </div>
 
@@ -369,7 +297,7 @@ const Creator = () => {
                     value={formData.mail}
                     onChange={handleInputChange}
                     placeholder="Email address"
-                    className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-neutral-600 focus:outline-none focus:border-indigo-500/50 focus:bg-white/[0.04] transition-all"
+                    className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-neutral-600 focus:outline-none focus:border-white/50 focus:bg-white/[0.04] transition-all"
                   />
 
                   <input
@@ -379,7 +307,7 @@ const Creator = () => {
                     value={formData.socialLink}
                     onChange={handleInputChange}
                     placeholder="Primary profile link (Instagram, YouTube, etc.)"
-                    className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-neutral-600 focus:outline-none focus:border-indigo-500/50 focus:bg-white/[0.04] transition-all"
+                    className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-neutral-600 focus:outline-none focus:border-white/50 focus:bg-white/[0.04] transition-all"
                   />
 
                   <select
@@ -387,7 +315,7 @@ const Creator = () => {
                     required
                     value={formData.niche}
                     onChange={handleInputChange}
-                    className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-5 py-4 text-neutral-400 appearance-none focus:outline-none focus:border-indigo-500/50 focus:bg-white/[0.04] transition-all cursor-pointer [&>option]:bg-neutral-900"
+                    className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-5 py-4 text-neutral-400 appearance-none focus:outline-none focus:border-white/50 focus:bg-white/[0.04] transition-all cursor-pointer [&>option]:bg-neutral-900"
                   >
                     <option value="" disabled>Select your primary niche</option>
                     <option value="Food & Cafes">Food & Dining</option>
@@ -402,7 +330,7 @@ const Creator = () => {
                   </select>
 
                   <p className="text-xs text-neutral-500 mt-2 px-1">
-                    By clicking "Join Waitlist", you acknowledge that you have read our <Link to="/privacy" className="text-indigo-400 hover:text-indigo-300 transition-colors underline decoration-indigo-400/30 underline-offset-2">Privacy Policy</Link>.
+                    By clicking "Join Waitlist", you acknowledge that you have read our <Link to="/privacy" className="text-white hover:text-neutral-300 transition-colors underline decoration-white/30 underline-offset-2">Privacy Policy</Link>.
                   </p>
 
                   {errorMessage && (
@@ -435,11 +363,9 @@ const Creator = () => {
               </div>
             ) : (
               <div className="relative animate-[fadeScale_0.5s_ease-out_forwards]">
-                {/* Glow highlight behind the box */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500/30 via-purple-500/30 to-indigo-500/30 rounded-[2.2rem] blur-xl animate-pulse"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-white/10 via-white/10 to-white/10 rounded-[2.2rem] blur-xl animate-pulse"></div>
 
-                <div className="relative flex flex-col items-center text-center py-16 px-8 border border-indigo-500/30 rounded-[2rem] bg-[#0a0a0f]/90 backdrop-blur-xl shadow-[0_0_60px_rgba(99,102,241,0.15)]">
-                  {/* Close Button */}
+                <div className="relative flex flex-col items-center text-center py-16 px-8 border border-white/20 rounded-[2rem] bg-[#0a0a0f]/90 backdrop-blur-xl">
                   <button
                     onClick={() => setIsSubmitted(false)}
                     className="absolute top-5 right-5 w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-neutral-400 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all duration-300 cursor-pointer"
@@ -449,9 +375,8 @@ const Creator = () => {
                     </svg>
                   </button>
 
-                  {/* Animated checkmark */}
-                  <div className="w-16 h-16 rounded-full border-2 border-emerald-500/50 bg-emerald-500/10 flex items-center justify-center mb-6 animate-bounce shadow-[0_0_30px_rgba(16,185,129,0.2)]">
-                    <svg className="w-7 h-7 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="w-16 h-16 rounded-full border-2 border-white/30 bg-white/10 flex items-center justify-center mb-6 animate-bounce">
+                    <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
