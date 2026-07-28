@@ -85,15 +85,21 @@ const App = () => {
           <h1 className="text-6xl sm:text-7xl md:text-[6rem] font-semibold tracking-tight text-white mb-6 leading-[0.92]">
             Vibelist
           </h1>
-          <p className="text-neutral-300 text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed mb-10">
+          <p className="text-neutral-300 text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed mb-6">
             Your AI creative studio built with local creators and businesses in mind.
           </p>
-          <Link to="/creator" className="inline-flex items-center justify-center rounded-full bg-white px-10 py-4 text-base font-semibold text-black shadow-[0_20px_60px_rgba(255,255,255,0.08)] transition hover:shadow-[0_24px_80px_rgba(255,255,255,0.12)]">
-            Create with Vibelist
-          </Link>
+          <p className="text-neutral-400 text-base md:text-lg max-w-3xl mx-auto leading-relaxed mb-8">
+            Build local campaigns, connect with trusted small businesses, and earn from creator collaborations that emphasize real impact over vanity metrics.
+          </p>
+          <p className="text-neutral-400 text-base md:text-lg max-w-3xl mx-auto leading-relaxed mb-10">
+            Choose your role and get started with smart workflows, simple onboarding, and transparent opportunities tailored to your community.
+          </p>
+          <a href="#selection" className="inline-flex items-center justify-center rounded-full bg-white px-10 py-4 text-base font-semibold text-black shadow-[0_20px_60px_rgba(255,255,255,0.08)] transition hover:shadow-[0_24px_80px_rgba(255,255,255,0.12)]">
+            Start with Vibelist
+          </a>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+        <div id="selection" className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
 
           <FadeIn delay={200}>
             <div className="group relative p-1 rounded-[2.5rem] overflow-hidden transition-transform duration-300 hover:-translate-y-2 h-full">

@@ -10,7 +10,7 @@ const AboutUs = () => {
 
       <Navbar />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 py-20 flex flex-col gap-24">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-20 flex flex-col gap-24">
 
         <section className="flex flex-col items-center text-center gap-8">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-neutral-400 backdrop-blur-md">
@@ -171,7 +171,7 @@ const AboutUs = () => {
               to="/"
               className="group relative inline-flex h-14 items-center justify-center overflow-hidden rounded-full bg-white px-8 font-medium text-black hover:bg-neutral-200 transition-colors duration-300"
             >
-              Explore Open Campaigns
+              Testimonial
             </Link>
             <Link
               to="/contact"
