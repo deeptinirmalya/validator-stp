@@ -137,9 +137,9 @@ const Creator = () => {
 
       <Navbar />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 flex flex-col gap-40 pt-32">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-20 pb-24 flex flex-col gap-32">
 
-        <section className="flex flex-col items-center text-center gap-10 mt-12 md:mt-20">
+        <section className="flex flex-col items-center text-center gap-10 mt-6 md:mt-10">
           <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-neutral-400 backdrop-blur-md">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
@@ -258,7 +258,7 @@ const Creator = () => {
           </FadeIn>
         </section>
 
-        <section id="claim-form" className="flex flex-col items-center justify-center pb-32">
+        <section id="claim-form" className="scroll-mt-28 flex flex-col items-center justify-center pb-32">
           <div className="w-full max-w-lg">
             {!isSubmitted ? (
               <div className="flex flex-col gap-10">

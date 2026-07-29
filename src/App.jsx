@@ -112,12 +112,12 @@ const App = () => {
           <p className="text-neutral-300 text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed mb-6">
             Your AI creative studio built with local creators and businesses in mind.
           </p>
-          <p className="text-neutral-400 text-base md:text-lg max-w-3xl mx-auto leading-relaxed mb-8">
+          {/* <p className="text-neutral-400 text-base md:text-lg max-w-3xl mx-auto leading-relaxed mb-8">
             Build local campaigns, connect with trusted small businesses, and earn from creator collaborations that emphasize real impact over vanity metrics.
           </p>
           <p className="text-neutral-400 text-base md:text-lg max-w-3xl mx-auto leading-relaxed mb-10">
             Choose your role and get started with smart workflows, simple onboarding, and transparent opportunities tailored to your community.
-          </p>
+          </p> */}
           <a href="#selection" className="inline-flex items-center justify-center rounded-full bg-white px-10 py-4 text-base font-semibold text-black shadow-[0_20px_60px_rgba(255,255,255,0.08)] transition hover:shadow-[0_24px_80px_rgba(255,255,255,0.12)]">
             Start with Vibelist
           </a>
@@ -153,7 +153,7 @@ const App = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                   </svg>
                 </div>
-                <h2 className="text-3xl font-medium text-white mb-4">I am a Business</h2>
+                <h2 className="text-3xl font-medium text-white mb-4">I have a Business</h2>
                 <p className="text-neutral-400 leading-relaxed mb-10 flex-1">
                   Stop chasing vanity metrics. Bring real people and guaranteed foot traffic straight to your door with trusted local micro-creators.
                 </p>

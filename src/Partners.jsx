@@ -117,7 +117,7 @@ const Partners = () => {
 
       <Navbar />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-8 flex flex-col gap-32">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-28 pb-8 flex flex-col gap-32">
 
         {/* Hero Section */}
         <section className="flex flex-col lg:flex-row items-center justify-between gap-16">
@@ -370,7 +370,7 @@ const Partners = () => {
         </section>
 
         {/* Partner Registration Form */}
-        <section id="partner-form" className="w-full max-w-4xl mx-auto flex flex-col gap-8 mb-20 bg-[#0a0a0f]/80 p-8 md:p-12 rounded-[2rem] border border-white/5 backdrop-blur-xl shadow-2xl relative z-10">
+        <section id="partner-form" className="scroll-mt-28 w-full max-w-4xl mx-auto flex flex-col gap-8 mb-20 bg-[#0a0a0f]/80 p-8 md:p-12 rounded-[2rem] border border-white/5 backdrop-blur-xl shadow-2xl relative z-10">
           <div className="text-center mb-6">
             <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-white">Join the Waitlist.</h2>
             <p className="text-neutral-400 mt-2">Fill out the form below to get early access to Vibelist creators.</p>
