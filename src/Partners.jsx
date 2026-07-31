@@ -438,7 +438,7 @@ const Partners = () => {
               <div className="flex flex-col gap-6 border-b border-white/5 pb-10">
                 <div className="flex flex-col gap-2">
                   <label className="text-sm text-neutral-400 font-medium">Website or Active Social Media Link</label>
-                  <input type="url" name="socialLink" value={formData.socialLink} onChange={handleChange} placeholder="Website / Instagram / LinkedIn Profile URL" className="bg-[#050505] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/50 transition-colors" required />
+                  <input type="url" name="socialLink" value={formData.socialLink} onChange={handleChange} placeholder="Website / Instagram / LinkedIn Profile URL" className="bg-[#050505] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/50 transition-colors"/>
                 </div>
 
                 <div className="flex flex-col gap-2">
